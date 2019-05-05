@@ -8,9 +8,10 @@ from keras.layers import Conv2D
 from keras.layers import MaxPooling2D
 from keras.layers import Flatten
 from keras.layers import Dense
+from keras.callbacks import EarlyStopping
 
 import matplotlib.pyplot as plt
-EPOCH_STEP = 100
+EPOCH_STEP = 200
 EPOCH = 30
 
 def eval_metric(model, history, metric_name):
@@ -113,6 +114,8 @@ test_set = train_datagen.flow_from_directory(
 
 print('Training Neural Network')
 
+es = EarlyStopping(monitor='val_acc', mode='auto', verbose=1, restore_best_weights=True, patience=10)
+
 base_history = classifier.fit_generator(
     training_set,
     steps_per_epoch=EPOCH_STEP,
@@ -120,7 +123,9 @@ base_history = classifier.fit_generator(
     validation_data=test_set,
     validation_steps=800,
     workers=7,
-    max_queue_size=100)
+    max_queue_size=100,
+    callbacks=[es],
+    )
 
 #eval_metric(classifier, base_history, 'loss')
 plot_history(base_history)
@@ -138,7 +143,9 @@ print('Done Training Neural Network')
 #print("Loaded model from disk")
 
 print(training_set.class_indices)
-print('')
+print()
+
+## TEST ON VALIDATION SET
 
 correct_classifications = 0
 incorrect_classifications = 0
@@ -160,10 +167,10 @@ for file_name in os.listdir('data/validation/dog'):
     else:
         incorrect_classifications += 1
     print('Prediction: ' + str(best_result) + ' - ' + prediction)
-    print('')
+    print()
 
-print('')
-print('')
+print()
+print()
 
 print('Expecting: human')
 for file_name in os.listdir('data/validation/human'):
@@ -182,7 +189,7 @@ for file_name in os.listdir('data/validation/human'):
     else:
         incorrect_classifications += 1
     print('Prediction: ' + str(best_result) + ' - ' + prediction)
-    print('')
+    print()
 
 print("Accuracy: %0.2f" % (correct_classifications / (correct_classifications + incorrect_classifications)))
 
@@ -195,3 +202,41 @@ with open("model/model.json", "w") as json_file:
 # Serialize weights to HDF5
 classifier.save_weights("model/model.h5")
 print("Saved model to disk")
+print()
+print()
+
+## TEST HACKED IMAGES
+
+correct_classifications = 0
+incorrect_classifications = 0
+
+for file_name in os.listdir('data-hacked/dog'):
+    test_image = image.load_img('data-hacked/dog/' + file_name, color_mode='grayscale', target_size=(64,64))
+    test_image = image.img_to_array(test_image)
+    test_image = np.expand_dims(test_image, axis=0)
+    result = classifier.predict(test_image)
+    best_result = np.argmax(result)
+    for class_name in training_set.class_indices:
+        if best_result == training_set.class_indices[class_name]:
+            prediction = class_name
+    if prediction == 'dog':
+        correct_classifications += 1
+    else:
+        incorrect_classifications += 1
+
+for file_name in os.listdir('data-hacked/human'):
+    test_image = image.load_img('data-hacked/human/' + file_name, color_mode='grayscale', target_size=(64,64))
+    test_image = image.img_to_array(test_image)
+    test_image = np.expand_dims(test_image, axis=0)
+    result = classifier.predict(test_image)
+    best_result = np.argmax(result)
+    for class_name in training_set.class_indices:
+        if best_result == training_set.class_indices[class_name]:
+            prediction = class_name
+    if prediction == 'human':
+        correct_classifications += 1
+    else:
+        incorrect_classifications += 1
+
+print('Hacked Image Results')
+print("Accuracy: %0.2f" % (correct_classifications / (correct_classifications + incorrect_classifications)))
