@@ -262,8 +262,10 @@ __pycache__/
 *.pyc
 
 # Custom
+ImageClassificationNN/ImageClassificationNN/results/output.txt
 ImageClassificationNN/ImageClassificationNN/data/old
 ImageClassificationNN/ImageClassificationNN/data/test
 ImageClassificationNN/ImageClassificationNN/data/train
 ImageClassificationNN/ImageClassificationNN/data/validation
 ImageClassificationNN/ImageClassificationNN/model/*
+datasets/*
