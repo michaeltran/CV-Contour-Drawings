@@ -267,5 +267,6 @@ ImageClassificationNN/ImageClassificationNN/data/old
 ImageClassificationNN/ImageClassificationNN/data/test
 ImageClassificationNN/ImageClassificationNN/data/train
 ImageClassificationNN/ImageClassificationNN/data/validation
+ImageClassificationNN/ImageClassificationNN/data-hacked/*
 ImageClassificationNN/ImageClassificationNN/model/*
 datasets/*

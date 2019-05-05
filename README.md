@@ -55,7 +55,7 @@ This will generate all hacked images from the images located in the folder `data
 
 ### Download Pretrained Model
 
-Download the Pretrained model of PhotoSketch from their website. Then place it in `PhotoSketch/pretrained`.
+Download the Pretrained model of PhotoSketch from their website. Then place it in `PhotoSketch/Exp/PhotoSketch/Checkpoints/pretrained`.
 
 ### Create Image Contours
 

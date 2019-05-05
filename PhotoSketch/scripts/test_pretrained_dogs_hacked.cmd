@@ -1,4 +1,4 @@
-@set "dataDir=D:\SourceTree\PhotoSketch"
+@set "dataDir=D:\SourceTree\CV-Contour-Drawings\PhotoSketch"
 
 python test_pretrained.py ^
     --name pretrained ^

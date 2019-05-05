@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>1a781f67-bf09-41f1-a61b-3b730a981397</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>ImageClassificationNN.py</StartupFile>
+    <StartupFile>TrainNeuralNetwork.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,9 +22,8 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Classify.py" />
     <Compile Include="ImageClassificationNN.py" />
-    <Compile Include="test.py">
+    <Compile Include="TestNeuralNetwork.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="TrainNeuralNetwork.py">
