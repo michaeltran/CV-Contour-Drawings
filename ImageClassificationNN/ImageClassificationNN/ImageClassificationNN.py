@@ -7,13 +7,12 @@ from keras import backend as K
 from PIL import Image
 
 class Hacker(object):
+    MODEL = inception_v3.InceptionV3()
     # Original Code that this code is based off of: https://medium.com/@ageitgey/machine-learning-is-fun-part-8-how-to-intentionally-trick-neural-networks-b55da32b7196
     def HackImage(self, original_path, destination_path_hacked, destination_path_original):
-        model = inception_v3.InceptionV3()
-
         # Grab a reference to the first and last layer of the neural net
-        model_input_layer = model.layers[0].input
-        model_output_layer = model.layers[-1].output
+        model_input_layer = self.MODEL.layers[0].input
+        model_output_layer = self.MODEL.layers[-1].output
 
         # Choose an ImageNet object to fake
         # The list of classes is available here: https://gist.github.com/ageitgey/4e1342c10a71981d0b491e1b8227328b
@@ -105,7 +104,7 @@ class Hacker(object):
         Output()
 
     def PredictImage(self, path):
-        model = inception_v3.InceptionV3()
+        #model = inception_v3.InceptionV3()
         img = image.load_img(path, target_size=(299, 299))
         loaded_image = image.img_to_array(img)
 
@@ -118,7 +117,7 @@ class Hacker(object):
         loaded_image = np.expand_dims(loaded_image, axis=0)
 
         # Run the image through the inception_v3 neural network
-        predictions = model.predict(loaded_image)
+        predictions = self.MODEL.predict(loaded_image)
 
         # Convert the predictions into text and print them
         predicted_classes = inception_v3.decode_predictions(predictions, top=1)
@@ -135,6 +134,8 @@ class Hacker(object):
                 os.makedirs(hacked_path + '/' + folder_name)
             for file_name in os.listdir(picture_path + '/' + folder_name):
                 name = re.findall("(.+?)(\.[^.]*$|$)", file_name)[0][0]
+                if os.path.isfile(hacked_path + '/' + folder_name + '/' + name + '.png'):
+                    continue
                 self.HackImage(picture_path + '/' + folder_name + '/' + file_name, 
                           hacked_path + '/' + folder_name + '/' + name + '.png',
                           hacked_path + '/' + folder_name + '/' + 'original-' + name + '.png')

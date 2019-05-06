@@ -35,12 +35,6 @@ Keras
 
 ---
 
-## Credits
-
-Images from: [https://www.pexels.com](https://www.pexels.com)
-
----
-
 ## How to Run - Hacked Image Generation
 
 ### Create Hacked Images
@@ -82,3 +76,9 @@ This will split the data in the `presplit` folder into `test`/`train`/`validatio
 Run the following command: `python ImageClassificationNN/ImageClassificationNN/TrainNeuralNetwork.py`
 
 This will train the neural network on the data in `train` folder. It will then test it against the `test` folder. Final accuracies will be based on the `validation` folder.
+
+---
+
+## Credits
+
+Some Images from: [https://www.pexels.com](https://www.pexels.com)
