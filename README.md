@@ -57,11 +57,23 @@ Download the Pretrained model of PhotoSketch from their [website](http://www.cs.
 
 ### Create Image Contours
 
-To generate contours based on original images, edit the command file `scripts/test_pretrained_dogs_hacked.cmd`, `scripts/test_pretrained_humans_hacked.cmd`, and `scripts/test_pretrained_toaster_hacked.cmd` (change the dataDir to the location of the PhotoSketch folder).
+To generate contours based on original images, edit the command files: (change the dataDir to the location of the PhotoSketch folder).
 
-Then run the scripts from the PhotoSketch root `"scripts/test_pretrained_dogs_hacked.cmd"`, `"scripts/test_pretrained_humans_hacked.cmd"`, `"scripts/test_pretrained_toasters_hacked.cmd"`. The results can be found in `PhotoSketch/Exp/Photosketch/Results`.
+```Rich Text Header
+scripts/test_pretrained_dogs_hacked.cmd
+scripts/test_pretrained_humans_hacked.cmd
+scripts/test_pretrained_toaster_hacked.cmd
+```
 
-These generated contours should be manually moved into the `presplit/[class]` folder for neural network processing.
+Then run the scripts from the PhotoSketch root:
+
+```Rich Text Header
+"scripts/test_pretrained_dogs_hacked.cmd"
+"scripts/test_pretrained_humans_hacked.cmd"
+"scripts/test_pretrained_toasters_hacked.cmd"
+```
+
+The results can be found in `PhotoSketch/Exp/Photosketch/Results`. These generated contours should be manually moved into the `presplit/[class]` folder for neural network processing.
 
 ---
 
@@ -93,4 +105,4 @@ This will train the neural network on the data in `train` folder. It will then t
 
 Images from: [https://www.pexels.com](https://www.pexels.com)
 
-Images from: [https://images.google.com/](https://images.google.com/)
+Images from: [https://images.google.com/](https://images.google.com)
