@@ -3,7 +3,7 @@
 python test_pretrained.py ^
     --name pretrained ^
     --dataset_mode test_dir ^
-    --dataroot ..\data\photos\dog\ ^
+    --dataroot ..\data\hacked_photos\dog\ ^
     --results_dir %dataDir%\Exp\PhotoSketch\Results\ ^
     --checkpoints_dir %dataDir%\Exp\PhotoSketch\Checkpoints\ ^
     --model pix2pix ^

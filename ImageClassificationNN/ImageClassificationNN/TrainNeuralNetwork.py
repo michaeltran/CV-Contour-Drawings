@@ -82,10 +82,11 @@ classifier.add(Flatten())
 
 # Step 4 - Full Connection
 classifier.add(Dense(units=128, activation='relu'))
-classifier.add(Dense(units=2, activation='softmax'))
+classifier.add(Dense(units=3, activation='softmax'))
 
 # Compiling the CNN
 classifier.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+classifier.summary()
 
 ## Part 2 - Fitting the CNN to the images
 
@@ -191,6 +192,28 @@ for file_name in os.listdir('data/validation/human'):
     print('Prediction: ' + str(best_result) + ' - ' + prediction)
     print()
 
+print()
+print()
+
+print('Expecting: toaster')
+for file_name in os.listdir('data/validation/toaster'):
+    test_image = image.load_img('data/validation/toaster/' + file_name, color_mode='grayscale', target_size=(64,64))
+    test_image = image.img_to_array(test_image)
+    test_image = np.expand_dims(test_image, axis=0)
+    result = classifier.predict(test_image)
+    print(file_name)
+    print(result)
+    best_result = np.argmax(result)
+    for class_name in training_set.class_indices:
+        if best_result == training_set.class_indices[class_name]:
+            prediction = class_name
+    if prediction == 'toaster':
+        correct_classifications += 1
+    else:
+        incorrect_classifications += 1
+    print('Prediction: ' + str(best_result) + ' - ' + prediction)
+    print()
+
 print("Accuracy: %0.2f" % (correct_classifications / (correct_classifications + incorrect_classifications)))
 
 # Serialize model to JSON
@@ -234,6 +257,20 @@ for file_name in os.listdir('data-hacked/human'):
         if best_result == training_set.class_indices[class_name]:
             prediction = class_name
     if prediction == 'human':
+        correct_classifications += 1
+    else:
+        incorrect_classifications += 1
+
+for file_name in os.listdir('data-hacked/toaster'):
+    test_image = image.load_img('data-hacked/toaster/' + file_name, color_mode='grayscale', target_size=(64,64))
+    test_image = image.img_to_array(test_image)
+    test_image = np.expand_dims(test_image, axis=0)
+    result = classifier.predict(test_image)
+    best_result = np.argmax(result)
+    for class_name in training_set.class_indices:
+        if best_result == training_set.class_indices[class_name]:
+            prediction = class_name
+    if prediction == 'toaster':
         correct_classifications += 1
     else:
         incorrect_classifications += 1

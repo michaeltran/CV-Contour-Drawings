@@ -263,10 +263,10 @@ __pycache__/
 
 # Custom
 ImageClassificationNN/ImageClassificationNN/results/output.txt
-ImageClassificationNN/ImageClassificationNN/data/old
 ImageClassificationNN/ImageClassificationNN/data/test
 ImageClassificationNN/ImageClassificationNN/data/train
 ImageClassificationNN/ImageClassificationNN/data/validation
 ImageClassificationNN/ImageClassificationNN/data-hacked/*
 ImageClassificationNN/ImageClassificationNN/model/*
+ImageClassificationNN/ImageClassificationNN/old/*
 datasets/*

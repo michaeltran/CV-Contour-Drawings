@@ -39,7 +39,11 @@ Keras
 
 ### Create Hacked Images
 
-Run the following command: `python ImageClassificationNN/ImageClassificationNN/ImageClassificationNN.py`.
+Navigate to the directory `ImageClassificationNN/ImageClassificationNN` and run the following command:
+
+```Rich Header Text
+python ImageClassificationNN.py
+```
 
 This will generate all hacked images from the images located in the folder `data/photos` and create a new folder `data/hacked_photos`.
 
@@ -49,17 +53,15 @@ This will generate all hacked images from the images located in the folder `data
 
 ### Download Pretrained Model
 
-Download the Pretrained model of PhotoSketch from their website. Then place it in `PhotoSketch/Exp/PhotoSketch/Checkpoints/pretrained`.
+Download the Pretrained model of PhotoSketch from their [website](http://www.cs.cmu.edu/~mengtial/proj/sketch/). Then place it in `PhotoSketch/Exp/PhotoSketch/Checkpoints/pretrained`.
 
 ### Create Image Contours
 
-To generate contours based on original images, edit the command file `scripts/test_pretrained_dogs.cmd` and `scripts/test_pretrained_humans.cmd` (change the dataDir to the location of the PhotoSketch folder).
+To generate contours based on original images, edit the command file `scripts/test_pretrained_dogs_hacked.cmd`, `scripts/test_pretrained_humans_hacked.cmd`, and `scripts/test_pretrained_toaster_hacked.cmd` (change the dataDir to the location of the PhotoSketch folder).
 
-Then run the scripts from the PhotoSketch root `scripts/test_pretrained_dogs.cmd` and `scripts/test_pretrained_humans.cmd`. The results can be found in `PhotoSketch/Exp/Photosketch/Results`.
+Then run the scripts from the PhotoSketch root `"scripts/test_pretrained_dogs_hacked.cmd"`, `"scripts/test_pretrained_humans_hacked.cmd"`, `"scripts/test_pretrained_toasters_hacked.cmd"`. The results can be found in `PhotoSketch/Exp/Photosketch/Results`.
 
-Edit and run `"scripts/test_pretrained_dogs_hacked.cmd"` and `"scripts/test_pretrained_humans_hacked.cmd"` just like the steps above to create the contours for the hacked images.
-
-These generated contours should be manually moved into the `presplit/class` folder for neural network processing.
+These generated contours should be manually moved into the `presplit/[class]` folder for neural network processing.
 
 ---
 
@@ -67,13 +69,21 @@ These generated contours should be manually moved into the `presplit/class` fold
 
 ### Split Data
 
-Run the following command: `python ImageClassificationNN/ImageClassificationNN/TrainNeuralNetworkSplit.py`
+Navigate to the directory `ImageClassificationNN/ImageClassificationNN` and run the following command:
+
+```Rich Header Text
+python TrainNeuralNetworkSplit.py
+```
 
 This will split the data in the `presplit` folder into `test`/`train`/`validation` folder splits.
 
 ### Train Neural Network
 
-Run the following command: `python ImageClassificationNN/ImageClassificationNN/TrainNeuralNetwork.py`
+Navigate to the directory `ImageClassificationNN/ImageClassificationNN` and run the following command:
+
+```Rich Header Text
+python TrainNeuralNetwork.py
+```
 
 This will train the neural network on the data in `train` folder. It will then test it against the `test` folder. Final accuracies will be based on the `validation` folder.
 
@@ -81,4 +91,6 @@ This will train the neural network on the data in `train` folder. It will then t
 
 ## Credits
 
-Some Images from: [https://www.pexels.com](https://www.pexels.com)
+Images from: [https://www.pexels.com](https://www.pexels.com)
+
+Images from: [https://images.google.com/](https://images.google.com/)
