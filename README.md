@@ -2,7 +2,7 @@
 
 Evaluation Project based on [PhotoSketch](https://github.com/mtli/PhotoSketch)
 
-For technical details, please refer to our [[paper]](https://github.com/michaeltran/ML-Gender-Classification/blob/master/docs/report.pdf).
+For technical details, please refer to our [[paper]](https://github.com/michaeltran/CV-Contour-Drawings/blob/master/docs/report.pdf).
 
 See the sub project of this project by Victor Chen [here](https://github.com/victorlcuh/Contour_Drawings).
 
