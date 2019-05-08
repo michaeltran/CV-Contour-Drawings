@@ -2,6 +2,8 @@
 
 Evaluation Project based on [PhotoSketch](https://github.com/mtli/PhotoSketch)
 
+For technical details, please refer to our [[paper]](https://github.com/michaeltran/ML-Gender-Classification/blob/master/docs/report.pdf).
+
 ## Project Goals
 
 1. Generate image contours from PhotoSketch and deal the images into Train/Test/Validation splits.
