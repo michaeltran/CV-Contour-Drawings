@@ -77,7 +77,7 @@ Then run the scripts from the PhotoSketch root:
 "scripts/test_pretrained_toasters_hacked.cmd"
 ```
 
-The results can be found in `PhotoSketch/Exp/Photosketch/Results`. These generated contours should be manually moved into the `presplit/[class]` folder for neural network processing.
+The results can be found in `PhotoSketch/Exp/Photosketch/Results`. These generated contours should be manually moved into the `data/presplit/[class]` and `data-hacked/[class]` folder for neural network processing.
 
 ---
 
