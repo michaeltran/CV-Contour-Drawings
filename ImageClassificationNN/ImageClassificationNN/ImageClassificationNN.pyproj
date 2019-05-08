@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>1a781f67-bf09-41f1-a61b-3b730a981397</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>TrainNeuralNetwork.py</StartupFile>
+    <StartupFile>ImageClassificationNN.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>

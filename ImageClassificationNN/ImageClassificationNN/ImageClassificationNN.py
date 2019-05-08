@@ -105,7 +105,6 @@ class Hacker(object):
         Output()
 
     def PredictImage(self, path):
-        #model = inception_v3.InceptionV3()
         img = image.load_img(path, target_size=(299, 299))
         loaded_image = image.img_to_array(img)
 
